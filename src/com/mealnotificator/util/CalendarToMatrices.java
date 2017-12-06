@@ -24,9 +24,7 @@ public class CalendarToMatrices {
     
     public CalendarToMatrices(){
         this.month = LocalDateTime.now().getMonthValue();
-        System.out.println(month);
         this.year = LocalDateTime.now().getYear();
-        System.out.println(year);
     }
     
     public void nextCalender() throws ParseException{
@@ -36,15 +34,7 @@ public class CalendarToMatrices {
         } else{
             this.month = this.month + 1;
         }
-        
-        System.out.println("dia 1 do mes " + this.month + " de " + this.year);
-        
-        try {
-            System.out.println("dia da semana do primeiro dia:   " + getFirstDay());
-            System.out.println("ultimo dia do mes: " + getLastDay());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+  
     }
     
     public void previousCalendar(){
@@ -55,18 +45,9 @@ public class CalendarToMatrices {
         } else{
             this.month = this.month - 1;
         }
-        
-        System.out.println("dia 1 do mes " + this.month + " de " + this.year);
-        
-        try {
-            System.out.println("dia da semana do primeiro dia:   " + getFirstDay());
-            System.out.println("ultimo dia do mes: " + getLastDay());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
     
-    private void calendarInMatrix(int month, int year) throws ParseException{
+    private void calendarInMatrix() throws ParseException{
         int firstDay = getFirstDay();
         int lastDay = getLastDay();
         
