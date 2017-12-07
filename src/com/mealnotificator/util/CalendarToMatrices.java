@@ -11,7 +11,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  *
@@ -40,9 +39,7 @@ public class CalendarToMatrices {
         } else{
             this.month = this.month + 1;
         }
-  
-        System.out.println("this month = "+this.month+" this year = "+ this.year);
-           return calendarInMatrix();
+        return calendarInMatrix();
     }
     
     public int[][] previousCalendar() throws ParseException{
@@ -53,15 +50,12 @@ public class CalendarToMatrices {
         } else{
             this.month = this.month - 1;
         }
-        
         return calendarInMatrix();
     }
     
     private int[][] calendarInMatrix() throws ParseException{
         int firstDay = getFirstDay();
         int lastDay = getLastDay();
-        
-        
         int [][]mCalendar = new int[7][6];
         
         int index = 1;
@@ -106,4 +100,3 @@ public class CalendarToMatrices {
         return convertedDate.getDayOfMonth();
     }
 }
-
