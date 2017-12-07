@@ -10,7 +10,6 @@ package com.mealnotificator.controller;
 import com.mealnotificator.util.CalendarToMatrices;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +23,9 @@ import javafx.scene.control.Label;
 public class CalendarViewController implements Initializable {
     
     @FXML
-    private Label label;
+    private Label lbYear;
+    @FXML
+    private Label lbMonth;
     
     
     
@@ -32,7 +33,7 @@ public class CalendarViewController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws ParseException {
-        label.setText("Hello World!");
+       // lbYear.setText(c.Y);
          
     }
     
