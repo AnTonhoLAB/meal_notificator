@@ -21,7 +21,7 @@ import javafx.scene.control.Label;
  *
  * @author george
  */
-public class FXMLDocumentController implements Initializable {
+public class CalendarViewController implements Initializable {
     
     @FXML
     private Label label;
