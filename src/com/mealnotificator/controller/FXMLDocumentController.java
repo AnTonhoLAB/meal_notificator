@@ -33,10 +33,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) throws ParseException {
         label.setText("Hello World!");
-        
-        
-        c.previousCalendar();
-        
+         
     }
     
     @Override

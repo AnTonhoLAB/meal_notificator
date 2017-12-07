@@ -27,7 +27,13 @@ public class CalendarToMatrices {
         this.year = LocalDateTime.now().getYear();
     }
     
-    public void nextCalender() throws ParseException{
+    public int[][] currentCalendar() throws ParseException{
+        this.month = LocalDateTime.now().getMonthValue();
+        this.year = LocalDateTime.now().getYear();
+        return calendarInMatrix();
+    }
+    
+    public int[][] nextCalendar() throws ParseException{
         if(this.month == 12){
             this.month = 1;
             this.year++;
@@ -35,9 +41,11 @@ public class CalendarToMatrices {
             this.month = this.month + 1;
         }
   
+        System.out.println("this month = "+this.month+" this year = "+ this.year);
+           return calendarInMatrix();
     }
     
-    public void previousCalendar(){
+    public int[][] previousCalendar() throws ParseException{
         
         if(this.month == 1){
             this.month = 12;
@@ -45,13 +53,38 @@ public class CalendarToMatrices {
         } else{
             this.month = this.month - 1;
         }
+        
+        return calendarInMatrix();
     }
     
-    private void calendarInMatrix() throws ParseException{
+    private int[][] calendarInMatrix() throws ParseException{
         int firstDay = getFirstDay();
         int lastDay = getLastDay();
         
- 
+        
+        int [][]mCalendar = new int[7][6];
+        
+        int index = 1;
+        boolean trigger = false;
+        int day = 1;
+        
+        for (int s = 0; s < 6; s++) {
+            for (int d = 0; d < 7; d++) {
+              
+                if(index == firstDay)
+                    trigger = true;
+                  
+                if(day == lastDay + 1)
+                    trigger = false;
+                 
+                if (trigger == true){
+                    mCalendar[d][s] = day;
+                    day++;
+                }
+              index++;
+            }
+        }
+       return mCalendar;
     }
     
     // get day of week of a first day of month
