@@ -7,9 +7,13 @@ package com.mealnotificator.controller;
  */
 
 
+import com.mealnotificator.dao.HibernateDAO;
+
+import com.mealnotificator.model.State;
 import com.mealnotificator.util.CalendarToMatrices;
 import java.net.URL;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,6 +55,21 @@ public class CalendarViewController implements Initializable {
     private void btPreviousMonth(ActionEvent event) throws ParseException {
         c.previousCalendar();
         updateDate();
+        
+//        StateDAO sD = new StateDAO(new State());
+//        ArrayList<State> s = (ArrayList<State>) sD.findAll();
+//        
+//        for (State state : s) {
+//             System.out.println(state.getName());
+//        }
+        
+        
+         HibernateDAO hD = new HibernateDAO(new State());
+        ArrayList<State> sa = (ArrayList<State>) hD.findAll();
+        
+        for (State state : sa) {
+             System.out.println(state.getName());
+        }
     }
     
     private void updateDate(){
