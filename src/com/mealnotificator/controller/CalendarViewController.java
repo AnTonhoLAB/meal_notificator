@@ -32,12 +32,8 @@ public class CalendarViewController implements Initializable {
     @FXML
     private Label lbMonth;
     
-    
-    
     CalendarToMatrices c = new CalendarToMatrices();
-    
-   
-    
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lbYear.setAlignment(Pos.BASELINE_CENTER);
@@ -55,16 +51,9 @@ public class CalendarViewController implements Initializable {
     private void btPreviousMonth(ActionEvent event) throws ParseException {
         c.previousCalendar();
         updateDate();
+
         
-//        StateDAO sD = new StateDAO(new State());
-//        ArrayList<State> s = (ArrayList<State>) sD.findAll();
-//        
-//        for (State state : s) {
-//             System.out.println(state.getName());
-//        }
-        
-        
-         HibernateDAO hD = new HibernateDAO(new State());
+        HibernateDAO hD = new HibernateDAO(new State());
         ArrayList<State> sa = (ArrayList<State>) hD.findAll();
         
         for (State state : sa) {
