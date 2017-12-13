@@ -10,11 +10,11 @@ package com.mealnotificator.controller;
 import com.mealnotificator.util.CalendarToMatrices;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 
 /**
@@ -24,21 +24,39 @@ import javafx.scene.control.Label;
 public class CalendarViewController implements Initializable {
     
     @FXML
-    private Label label;
+    private Label lbYear;
+    @FXML
+    private Label lbMonth;
     
     
     
     CalendarToMatrices c = new CalendarToMatrices();
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) throws ParseException {
-        label.setText("Hello World!");
-         
-    }
+   
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        lbYear.setAlignment(Pos.BASELINE_CENTER);
+        lbMonth.setAlignment(Pos.BASELINE_CENTER);
+        updateDate();
     }    
+    
+     @FXML
+    private void btNextMonth(ActionEvent event) throws ParseException {
+        c.nextCalendar();
+        updateDate();
+    }
+    
+     @FXML
+    private void btPreviousMonth(ActionEvent event) throws ParseException {
+        c.previousCalendar();
+        updateDate();
+    }
+    
+    private void updateDate(){
+        lbYear.setText(""+c.getYear());
+        String[] strMonth = {"Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"};
+        lbMonth.setText(strMonth[c.getMonth() - 1]);
+    }
     
 }
