@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 13, 2017 5:09:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mealnotificator.model.Street" table="street" catalog="MealManager" optimistic-lock="version">
+        <id name="idStreet" type="java.lang.Integer">
+            <column name="idStreet" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="city" class="com.mealnotificator.model.City" fetch="select">
+            <column name="idCity" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="zipCode" type="string">
+            <column name="zipCode" length="9" />
+        </property>
+        <property name="district" type="string">
+            <column name="district" length="50" />
+        </property>
+        <set name="addresses" table="address" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idStreet" />
+            </key>
+            <one-to-many class="com.mealnotificator.model.Address" />
+        </set>
+    </class>
+</hibernate-mapping>
