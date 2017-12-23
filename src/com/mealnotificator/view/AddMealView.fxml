@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9" fx:controller="com.mealnotificator.controller.AddMealViewController">
+   <children>
+      <Label layoutX="28.0" layoutY="36.0" text="Nome" />
+      <TextField fx:id="tfNome" layoutX="28.0" layoutY="61.0" prefHeight="27.0" prefWidth="543.0" />
+      <Label layoutX="28.0" layoutY="96.0" text="Descrição" />
+      <TextArea fx:id="taDescricao" layoutX="28.0" layoutY="113.0" prefHeight="200.0" prefWidth="543.0" />
+      <Button layoutX="512.0" layoutY="343.0" mnemonicParsing="false" onAction="#btSalvar" text="Salvar" />
+   </children>
+</AnchorPane>
